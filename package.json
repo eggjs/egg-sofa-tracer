@@ -3,23 +3,35 @@
   "version": "1.0.0",
   "description": "The node version of sofa tracer",
   "eggPlugin": {
-    "name": "sofaTracer"
+    "name": "sofaTracer",
+    "dependencies": [
+      "opentracing"
+    ],
+    "optionalDependencies": [
+      "sofaRpc"
+    ]
   },
   "keywords": [
     "egg",
     "eggPlugin",
     "egg-plugin"
   ],
-  "dependencies": {},
+  "dependencies": {
+
+  },
   "devDependencies": {
-    "autod": "^3.0.0",
-    "autod-egg": "^1.0.0",
-    "egg": "^2.0.0",
-    "egg-bin": "^4.3.0",
-    "egg-ci": "^1.8.0",
-    "egg-mock": "^3.13.0",
-    "eslint": "^4.11.0",
-    "eslint-config-egg": "^5.1.0",
+    "autod": "^3.0.1",
+    "autod-egg": "^1.1.0",
+    "egg": "^2.11.2",
+    "egg-bin": "^4.9.0",
+    "egg-ci": "^1.9.2",
+    "egg-mock": "^3.20.1",
+    "egg-opentracing": "^1.1.1",
+    "egg-rpc-generator": "^1.0.0",
+    "egg-sofa-rpc": "^1.0.1",
+    "eslint": "^5.6.1",
+    "eslint-config-egg": "^7.1.0",
+    "mz": "^2.7.0",
     "webstorm-disable-index": "^1.2.0"
   },
   "engines": {
@@ -28,7 +40,7 @@
   "scripts": {
     "test": "npm run lint -- --fix && egg-bin pkgfiles && npm run test-local",
     "test-local": "egg-bin test",
-    "cov": "egg-bin cov",
+    "cov": "sh test/init.sh && egg-bin cov",
     "lint": "eslint .",
     "ci": "egg-bin pkgfiles --check && npm run lint && npm run cov",
     "pkgfiles": "egg-bin pkgfiles",
@@ -36,11 +48,11 @@
   },
   "files": [
     "app.js",
-    "agent.js",
+    "lib",
     "config"
   ],
   "ci": {
-    "version": "8, 9"
+    "version": "8, 10"
   },
   "repository": {
     "type": "git",
