@@ -10,7 +10,7 @@ NAMES="rpc-client rpc-server"
 for NAME in $NAMES
 do
   echo "Create ${DIR}/${NAME} proxy"
-  $GEN -b ${DIR}/${NAME}
+  $GEN -b ${DIR}/${NAME} -p protobuf,jar2proxy
   echo "------------------------------------------------"
 done
 

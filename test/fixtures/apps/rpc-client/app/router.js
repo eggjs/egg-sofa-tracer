@@ -10,7 +10,7 @@ module.exports = app => {
   });
 
   app.get('/without_ctx', async function(ctx) {
-    const consumer = app.sofaRpcClient.createConsumer({
+    const consumer = app.rpcClient.createConsumer({
       interfaceName: 'com.alipay.sofa.rpc.protobuf.ProtoService',
       targetAppName: 'sofarpc',
       version: '1.0',
