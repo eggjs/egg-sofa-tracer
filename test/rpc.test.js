@@ -38,7 +38,7 @@ describe('test/rpc.test.js', () => {
     });
     assert(clientSpans.length === 2);
     assert(clientSpans[0].traceId === clientSpans[1].traceId);
-    assert(clientSpans[0].name === 'sofa_rpc_client');
+    assert(clientSpans[0].name === 'rpc_client');
     assert(clientSpans[0].component === 'egg');
     assert(clientSpans[0].appname === 'rpc-client');
     assert(clientSpans[0]['span.kind'] === 'client');
@@ -61,7 +61,7 @@ describe('test/rpc.test.js', () => {
     assert(serverSpans[0].appname === 'rpc-server');
     assert(serverSpans[0]['span.kind'] === 'client');
 
-    assert(serverSpans[1].name === 'sofa_rpc_server');
+    assert(serverSpans[1].name === 'rpc_server');
     assert(serverSpans[1].component === 'egg');
     assert(serverSpans[1].appname === 'rpc-server');
     assert(serverSpans[1]['span.kind'] === 'server');
@@ -86,7 +86,7 @@ describe('test/rpc.test.js', () => {
     assert(clientSpans.length === 4);
 
     assert(clientSpans[2].traceId !== clientSpans[3].traceId);
-    assert(clientSpans[2].name === 'sofa_rpc_client');
+    assert(clientSpans[2].name === 'rpc_client');
     assert(clientSpans[2].component === 'egg');
     assert(clientSpans[2].appname === 'rpc-client');
     assert(clientSpans[2]['span.kind'] === 'client');
